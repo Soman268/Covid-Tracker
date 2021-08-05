@@ -1,0 +1,374 @@
+<html>
+    <head>
+        <title>
+          Covid Tracker - INDIA
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </head>
+    <body style="background-color: black;">
+       
+      <!--NavBar-->
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <h3>COVID-19 Analysis</h3><p style="font-size: 15px; ">- SOMAN KUMAR</p>
+        </a>
+      </nav>
+      <br>
+    
+      <!--navbar url for inda-->
+
+      <nav class="navbar navbar-inverse">
+        <div class="container" ">
+          <h3></h3>
+          <ul class="nav nav-tabs">
+            <li ><button type="button" class="btn btn-default"><a href="{{ url_for('Information')}}">HOME</a></button></li>
+            <li><button type="button" class="btn btn-default"><a href="{{ url_for('covid') }}" >  INDIA</a></button></li>
+            <li><button type="button" class="btn btn-default"><a href="{{ url_for('world') }}">  WORLD</a></button></li>
+            <li><button type="button" class="btn btn-default"><a href="{{ url_for('contribute') }}">  CONTRIBUTORS</a></button></li>
+          </ul>
+          <br>
+          
+        </div>
+      </nav>
+        <br>
+
+
+      <div class="container text-center" >
+        <div class="card">
+            <div class="card-body" style="background-color: yellow;">
+                <h1>WORLD ANALYSIS</h1>
+            </div>
+        </div>
+    </div>
+    <br>
+    
+
+    <!--map of world-->
+<div class="container">
+  
+  <img class="img-responsive" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFCevhPumeBi9piB_RrXB5JW4iase_qMkGNQ&usqp=CAU" alt="world" width="1100" height="700" style="vertical-align:middle"> 
+ </div>
+ <br>
+ 
+    <!--new records displaying on screen-->
+
+    <div class="container">
+      <div class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Stay Safe !</strong> Total new cases today are {{world['todayCases']}}
+      </div>
+  </div>
+  <br>
+
+
+<div class="container">
+  <div class="alert alert-danger alert-dismissible fade show">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Stay Safe !</strong> Total new deaths today  {{world['todayDeaths']}}
+  </div>
+</div>
+<br>
+
+<div class="container">
+<div class="alert alert-danger alert-dismissible fade show">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong>Stay Safe !</strong> Total new recovered cases today  {{world['todayRecovered']}}
+</div>
+</div>
+<br>
+
+
+
+
+<!--all records in card format-->
+
+
+    <div class="container text-center">
+      <div class="row">
+
+
+          <div class="col-sm-3">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">CONFIRMED CASES</h5>
+                    <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-check-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                      <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+                    </svg>
+                    <button type="button" class="bbtn btn-info btn-lg" style=" border-radius: 8px; border: 4px solid greenyellow;">{{world['cases']}}</button> 
+                  </div>
+                </div>
+          </div>
+
+
+
+          <div class="col-sm-3">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">TOTAL DEATHS</h5>
+                    <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-shield-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M5.443 1.991a60.17 60.17 0 0 0-2.725.802.454.454 0 0 0-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 0 0 8 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 0 0 2.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 0 0-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 0 1 2.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 0 1-2.418 2.3 6.942 6.942 0 0 1-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 0 1-1.007-.586 11.192 11.192 0 0 1-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 0 1 2.415 1.84a61.11 61.11 0 0 1 2.772-.815z"/>
+                      <path fill-rule="evenodd" d="M6.146 6.146a.5.5 0 0 1 .708 0L8 7.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 8l1.147 1.146a.5.5 0 0 1-.708.708L8 8.707 6.854 9.854a.5.5 0 0 1-.708-.708L7.293 8 6.146 6.854a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                    <button type="button" class="btn btn-info btn-lg" style=" border-radius: 8px; border: 4px solid greenyellow;">{{world['deaths']}}</button>
+                  </div>
+                </div>
+          </div>
+
+
+
+          <div class="col-sm-3">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">RECOVERED CASES</h5>
+                    <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                    </svg>
+                    <button type="button" class="btn btn-info btn-lg" style=" border-radius: 8px; border: 4px solid greenyellow;">{{world['recovered']}}</button>
+                  </div>
+                </div>
+          </div>
+
+
+
+          <div class="col-sm-3">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">ACTIVE CASES</h5>
+                    <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-bookmark-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+                      <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    <button type="button" class="btn btn-info btn-lg" style=" border-radius: 8px; border: 4px solid greenyellow;">{{world['active']}}</button>
+                  </div>
+                </div>
+          </div>
+
+
+
+          <div class="col-sm-3">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">CRITICAL CASES</h5>
+                    <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-heart-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M8 1.314C3.562-3.248-7.534 4.735 8 15V1.314z"/>
+                      <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                    </svg>
+                    <button type="button" class="btn btn-info btn-lg" style=" border-radius: 8px; border: 4px solid greenyellow;">{{world['critical']}}</button>
+                  </div>
+                </div>
+          </div>
+
+
+
+          <div class="col-sm-3">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">TOTAL TEST</h5>
+                    <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-file-medical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z"/>
+                      <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v.634l.549-.317a.5.5 0 1 1 .5.866L9 6l.549.317a.5.5 0 1 1-.5.866L8.5 6.866V7.5a.5.5 0 0 1-1 0v-.634l-.549.317a.5.5 0 1 1-.5-.866L7 6l-.549-.317a.5.5 0 0 1 .5-.866l.549.317V4.5A.5.5 0 0 1 8 4zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    <button type="button" class="btn btn-info btn-lg" style=" border-radius: 8px; border: 4px solid greenyellow;">{{world['tests']}}</button>
+                  </div>
+                </div>
+          </div>
+
+
+
+          <div class="col-sm-3">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">POPULATION</h5>
+                    <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-people" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                    </svg>
+                    <button type="button" class="btn btn-info btn-lg" style=" border-radius: 8px; border: 4px solid greenyellow;">{{world['population']}}</button>
+                  </div>
+                </div>
+          </div>
+
+
+          <div class="col-sm-3">
+            <div class="card" style="width: 18rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title">COUNTRIES AFFECTED</h5>
+                  <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-globe2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539a8.372 8.372 0 0 1-1.198-.49 7.01 7.01 0 0 1 2.276-1.52 6.7 6.7 0 0 0-.597.932 8.854 8.854 0 0 0-.48 1.079zM3.509 7.5H1.017A6.964 6.964 0 0 1 2.38 3.825c.47.258.995.482 1.565.667A13.4 13.4 0 0 0 3.508 7.5zm1.4-2.741c.808.187 1.681.301 2.591.332V7.5H4.51c.035-.987.176-1.914.399-2.741zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5H7.5v2.409c-.91.03-1.783.145-2.591.332a12.343 12.343 0 0 1-.4-2.741zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696A12.63 12.63 0 0 1 7.5 11.91v3.014c-.67-.204-1.335-.82-1.887-1.855a7.776 7.776 0 0 1-.395-.872zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964a9.083 9.083 0 0 0-1.565.667A6.963 6.963 0 0 1 1.018 8.5h2.49a13.36 13.36 0 0 0 .437 3.008zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909c.81.03 1.577.13 2.282.287-.12.312-.252.604-.395.872-.552 1.035-1.218 1.65-1.887 1.855V11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5h-2.49a13.361 13.361 0 0 0-.437-3.008 9.123 9.123 0 0 0 1.565-.667A6.963 6.963 0 0 1 14.982 7.5zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343c-.705.157-1.473.257-2.282.287V1.077c.67.204 1.335.82 1.887 1.855.143.268.276.56.395.872z"/>
+                  </svg>
+                  <button type="button" class="btn btn-info btn-lg" style=" border-radius: 8px; border: 4px solid greenyellow;">{{world['affectedCountries']}}</button>
+             </div>
+              </div>
+        </div>
+
+
+      </div>
+    </div>
+    <br>
+
+    
+  <!--   -->
+    <!--Cards for worldwide-->
+
+    <div class="container text-center">
+      <div class="card">
+          <div class="card-body">
+              <h1>WORLDWIDE  DISPLAY</h1>
+          </div>
+      </div>
+  </div>
+  <br>
+  
+
+
+  <div class="container text-center">
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Confirmed Cases</h5>
+              <svg class="bi bi-person-check-fill" width="5em" height="7em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 100-6 3 3 0 000 6zm9.854-2.854a.5.5 0 010 .708l-3 3a.5.5 0 01-.708 0l-1.5-1.5a.5.5 0 01.708-.708L12.5 7.793l2.646-2.647a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+              </svg>
+              <p class="card-text"></p>
+              <button type="button" class="btn btn-dark btn-lg" style="min-width:150px; min-height:50px; border-radius: 0px; border: 1px solid #FFFFFF;"><strong>{{world['cases']}}</strong></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Confirmed Deaths</h5>
+              <svg class="bi bi-person-dash-fill" width="5em" height="7em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 100-6 3 3 0 000 6zm5-.5a.5.5 0 01.5-.5h4a.5.5 0 010 1h-4a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+              </svg>
+              <p class="card-text"> </p>
+              <button type="button" class="btn btn-dark btn-lg" style="min-width:150px; min-height:50px; border-radius: 0px; border: 1px solid #FFFFFF;"><strong>{{world['deaths']}}</strong></button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+<br>
+<!---->
+
+
+
+
+<div class="jumbotron">
+  <h1 class="display-4">WORLD</h1>
+  <p class="lead">The COVID-19 pandemic, also known as the coronavirus pandemic, is an ongoing pandemic of coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2), first identified in December 2019 in Wuhan, China. The World Health Organization declared the outbreak a Public Health Emergency of International Concern in January 2020 and a pandemic in March 2020. As of 29 November 2020, more than 62.5 million cases have been confirmed, with more than 1.45 million deaths attributed to COVID-19.
+
+    COVID-19 spreads via a number of means, primarily involving saliva and other bodily fluids and excretions. These fluids can form small droplets and aerosols, which can spread as an infected person breathes, coughs, sneezes, sings, or speaks. The virus may also spread by direct contact and it is unknown how often it spreads via fomites (contaminated surfaces). The exact route of transmission is rarely proven conclusively, but infection mainly happens when people are near each other for long enough, which is known as "close contact".It can spread as early as two days before infected persons show symptoms (presymptomatic), and from asymptomatic individuals. People remain infectious for up to ten days in moderate cases, and two weeks in severe cases.
+    
+    Based on the retrospective analysis, starting from December 2019, the number of coronavirus cases in Hubei gradually increased, reaching 60 by 20 December and at least 266 by 31 December. That same day, the WHO received reports of a cluster of viral pneumonia cases of an unknown cause in Wuhan, and an investigation was launched at the start of January 2020.
+    
+    According to official Chinese sources, these early cases were mostly linked to the Huanan Seafood Wholesale Market, which also sold live animals. However, in May 2020, George Gao, the director of the Chinese Center for Disease Control and Prevention, said animal samples collected from the seafood market had tested negative for the virus, indicating the market was not the source of the initial outbreak.
+    
+    On 24 December 2019, Wuhan Central Hospital sent a bronchoalveolar lavage fluid (BAL) sample from an unresolved clinical case to sequencing company Vision Medicals. On 27 and 28 December, Vision Medicals informed the Wuhan Central Hospital and the Chinese CDC of the results of the test, showing a new coronavirus. A pneumonia cluster of unknown cause was observed on 26 December and treated by the doctor Zhang Jixian in Hubei Provincial Hospital, who informed the Wuhan Jianghan CDC on 27 December.
+    
+    On 30 December 2019, a test report addressed to Wuhan Central Hospital, from company CapitalBio Medlab, stated that there was an erroneous positive result for SARS, causing a group of doctors at Wuhan Central Hospital to alert their colleagues and relevant hospital authorities of the result. Eight of those doctors, including Li Wenliang (who was also punished on 3 January), were later admonished by the police for spreading false rumours; and another doctor, Ai Fen, was reprimanded by her superiors for raising the alarm. That evening, the Wuhan Municipal Health Commission issued a notice to various medical institutions about "the treatment of pneumonia of unknown cause". The next day, the Wuhan Municipal Health Commission made the first public announcement of a pneumonia outbreak of unknown cause, confirming 27 cases—enough to trigger an investigation.
+    
+    During the early stages of the outbreak, the number of cases doubled approximately every seven and a half days. In early and mid-January 2020, the virus spread to other Chinese provinces, helped by the Chinese New Year migration and Wuhan being a transport hub and major rail interchange.On 20 January, China reported nearly 140 new cases in one day, including two people in Beijing and one in Shenzhen. A retrospective official study published in March found that 6,174 people had already developed symptoms by 20 January (most of them would be diagnosed later) and more may have been infected. A report in The Lancet on 24 January indicated human transmission, strongly recommended personal protective equipment for health workers, and said testing for the virus was essential due to its "pandemic potential".
+    
+    On 30 January 2020, with 7,818 confirmed cases across 19 countries, the WHO declared the outbreak a Public Health Emergency of International Concern (PHEIC), and then a pandemic on 11 March 2020 as Italy, Iran, South Korea, and Japan reported increasing numbers of cases. Later that month, the number of cases outside of China quickly surpassed the number of cases inside China.[citation needed]
+    
+    On 31 January 2020, Italy had its first confirmed cases, two tourists from China. As of 13 March 2020, the WHO considered Europe the active centre of the pandemic. On 19 March 2020, Italy overtook China as the country with the most reported deaths. By 26 March, the United States had overtaken China and Italy with the highest number of confirmed cases in the world. Research on coronavirus genomes indicates the majority of COVID-19 cases in New York came from European travellers, rather than directly from China or any other Asian country. Retesting of prior samples found a person in France who had the virus on 27 December 2019 and a person in the United States who died from the disease on 6 February 2020.
+    
+    On 11 June 2020, after 55 days without a locally transmitted case being officially reported, the city of Beijing reported a single COVID-19 case, followed by two more cases on 12 June. As of 15 June 2020, 79 cases were officially confirmed.[283] Most of these patients went to Xinfadi Wholesale Market.
+    
+    On 29 June 2020, WHO warned that the spread of the virus is still accelerating as countries reopen their economies, although many countries have made progress in slowing down the spread.
+    
+    On 15 July 2020, one COVID-19 case was officially reported in Dalian in more than three months. The patient did not travel outside the city in the 14 days before developing symptoms, nor did he have contact with people from "areas of attention."
+    
+    In October 2020, the WHO stated, at a special meeting of WHO leaders, that one in ten people around the world may have been infected with COVID-19. At the time, that translated to 780 million people being infected, while only 35 million infections had been confirmed.
+    
+    In early November 2020, Denmark reported on an outbreak of a unique mutated variant being transmitted to humans from minks in its North Jutland Region. All twelve human cases of the mutated variant were identified in September 2020. The WHO released a report saying the variant "had a combination of mutations, or changes that have not been previously observed." In response, Prime Minister Mette Frederiksen ordered for the country – the world's largest producer of mink fur – to cull its mink population by as many as 17 million.
+    
+    On 9 November 2020, Pfizer released their trial results for a candidate vaccine, showing that it is 90% effective against the virus. Later that day, Novavax entered an FDA Fast Track application for their vaccine. The November 9 announcement does not mean the vaccine is about to be released. However, virologist and U.S. National Institute of Allergy and Infectious Diseases director Dr. Anthony Fauci indicated that the Pfizer vaccine targets the spike protein used to infect cells by the virus. Some issues left to be answered are how long the vaccine offers protection, and if it offers the same level of protection to all ages. Initial doses will likely go to healthcare workers on the front lINE.
+    
+    On 9 November 2020 the United States surpassed 10 million confirmed cases of COVID-19, making it the country with the most cases worldwide by a large margin.
+    
+    As of 29 November 2020, more than 62.5 million cases have been reported worldwide due to COVID-19; more than 1.45 million have died and more than 39.9 million have recovered. It was reported on 27 November, that a publication released by the Centers for Disease Control and Prevention indicated that the current numbers of viral infection are via confirmed laboratory test only. However, the true number could be about eight times the reported number; the report further indicated that the true number of virus infected cases could be around 100 million in the U.S.</p>
+  <hr class="my-4">
+  <p>TO KNOW MORE ABOUT CORONAVIRUS OUTBREAK IN THE WORLD.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" role="button">Learn more</a>
+  </p>
+</div>
+
+  <!--footer-->
+
+    <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4" style="background-color: palegoldenrod;">
+
+      <!-- Footer Links -->
+      <div class="container-fluid text-center text-md-left">
+    
+        <!-- Grid row -->
+        <div class="row">
+    
+          <!-- Grid column -->
+          <div class="col-md-6 mt-md-0 mt-3">
+    
+            <!-- Content -->
+          
+            <h4>FOR MORE DETAILS REALTED TO COVID-19 YOU CAN GO ON TO THE FOLLOWING WEBSITES</h4>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <hr class="clearfix w-100 d-md-none pb-3">
+    
+          <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
+    
+            <!-- Links -->
+            
+    
+            <ul class="list-unstyled">
+              <li>
+                <a href="https://www.who.int/health-topics/coronavirus#tab=tab_1">WORLD HEALTH ORGANIZATION</a>
+              </li>
+              <li>
+                <a href="https://www.worldometers.info/coronavirus/">WORLDOMETER</a>
+              </li>
+              <li>
+                <a href="https://www.mohfw.gov.in/">MoHFW</a>
+              </li>
+              <li>
+                <a href="https://www.covid19india.org/">COVID-19 INDIA</a>
+              </li>
+            </ul>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
+    
+           
+          <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row -->
+    
+      </div>
+      <!-- Footer Links -->
+    
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+       <p style="color: rgb(47, 102, 102);">SOMAN KUMAR</p>
+      </div>
+      <!-- Copyright -->
+    
+    </footer>
+    <!-- Footer -->
+    </body>
+    </html>

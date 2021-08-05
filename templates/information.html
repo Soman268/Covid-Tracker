@@ -1,0 +1,595 @@
+<html>
+
+    <head>
+        <title>
+          Covid Tracker - INDIA
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+        <style>
+          body {
+            position: relative; 
+          }
+          #section1 {padding-top:50px;height:300px;color: #fff; background-color: #1E88E5;}
+          #section2 {padding-top:50px;height:300x;color: #fff; background-color: #673ab7;}
+          #section3 {padding-top:50px;height:300px;color: #fff; background-color: #ff9800;}
+      
+          </style>
+  
+      </head>
+    <body style="background-color: black;">
+      <!--NavBar-->
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <h3>COVID-19 Analysis</h3><p style="font-size: 15px; ">- SOMAN KUMAR</p>
+        </a>
+      </nav>
+      <br>
+      <!-- menu bar and to link it to world page-->
+
+      <nav class="navbar navbar-dark bi-globe ">
+        <div class="container" ">
+          <h3></h3>
+          <ul class="nav nav-tabs">
+            <li ><button type="button" class="btn btn-default"><a href="{{ url_for('Information')}}">HOME</a></button></li>
+            <li><button type="button" class="btn btn-default"><a href="{{ url_for('covid') }}" >  INDIA</a></button></li>
+            <li><button type="button" class="btn btn-default"><a href="{{ url_for('world') }}">  WORLD</a></button></li>
+            <li><button type="button" class="btn btn-default"><a href="{{ url_for('contribute') }}">  CONTRIBUTORS</a></button></li>
+          </ul>
+          <br>
+          
+        </div>
+      </nav>
+        <br>
+          <!--  ///  CAROUSEL   ///        -->
+          
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjh8fGNvcm9uYXxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="https://images.unsplash.com/photo-1605962615980-790a09ba3c4e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDF8fGNvdmlkJTIwMTl8ZW58MHx8MHw%3D&auto=format&fit=crop&w=500&q=60" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="https://images.unsplash.com/photo-1586800535250-5a53afa3948c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzF8fGNvdmlkJTIwMTl8ZW58MHx8MHw%3D&auto=format&fit=crop&w=500&q=60" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+
+      <!--overview part-->
+      <body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>                        
+              </button>
+              
+            </div>
+            
+        </nav>    
+        
+        <div id="section1" class="container-fluid">
+          <h1>OVERVIEW</h1>
+          <p>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
+
+            Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.
+            
+            The best way to prevent and slow down transmission is to be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub frequently and not touching your face. 
+            
+            The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed elbow).
+            
+            Stay informed:</p>
+          
+        </div>
+        <div id="section2" class="container-fluid">
+          <h1>PREVENTION</h1>
+          <p>To prevent infection and to slow transmission of COVID-19, do the following:
+
+            Wash your hands regularly with soap and water, or clean them with alcohol-based hand rub.
+            Maintain at least 1 metre distance between you and people coughing or sneezing.
+            Avoid touching your face.
+            Cover your mouth and nose when coughing or sneezing.
+            Stay home if you feel unwell.
+            Refrain from smoking and other activities that weaken the lungs.
+            Practice physical distancing by avoiding unnecessary travel and staying away from large groups of people.
+            </p>
+          
+        </div>
+        <div id="section3" class="container-fluid">
+          <h1>SYMPTOMS</h1>
+          <p>COVID-19 affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization.
+
+            Most common symptoms:
+            
+            fever.
+            dry cough.
+            tiredness.
+            Less common symptoms:
+            
+            aches and pains.
+            sore throat.
+            diarrhoea.
+            conjunctivitis.
+            headache.
+            loss of taste or smell.
+            a rash on skin, or discolouration of fingers or toes.
+            Serious symptoms:
+            
+            difficulty breathing or shortness of breath.
+            chest pain or pressure.
+            loss of speech or movement.
+            Seek immediate medical attention if you have serious symptoms.  Always call before visiting your doctor or health facility. 
+            
+            People with mild symptoms who are otherwise healthy should manage their symptoms at home. 
+            
+            On average it takes 5–6 days from when someone is infected with the virus for symptoms to show, however it can take up to 14 days. </p>
+         
+        </div>
+
+        <!-- SOME QUESTIONS-->
+
+        <div class="container text-left">
+         
+              <div class="card-body" style="background-color:  rgb(85, 20, 238);">
+                  <h1>DETAIL QUESTION AND ANSWER ON COVID-19 FOR PUBLIC</h1>
+              </div>
+          </div>
+     
+          <div class="container text-center">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        What is COVID19 ?
+                      </button>
+                    </h2>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body" style="background-color: aqua;">
+                        Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus. Most people who fall sick with COVID-19 will experience mild to moderate symptoms and recover without special treatment.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        What is the recovery time for the coronavirus disease ?
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body" style="background-color: aqua;">
+                        Using available preliminary data, the median time from onset to clinical recovery for mild cases is approximately 2 weeks and is 3-6 weeks for patients with severe or critical disease.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        What happens when you get the coronavirus disease ?
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body" style="background-color:aqua;">
+                        People with COVID-19 generally develop signs and symptoms, including mild respiratory symptoms and fever, on an average of 5-6 days after infection (mean incubation period 5-6 days, range 1-14 days). Most people infected with COVID-19 virus have mild disease and recover.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Can the coronavirus disease spread through air ?
+                        </button>
+                      </h2>
+                    </div>
+                
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body" style="background-color: aqua;">
+                        The virus that causes COVID-19 is mainly transmitted through droplets generated when an infected person coughs, sneezes, or speaks. These droplets are too heavy to hang in the air. They quickly fall on floors or surfaces. You can be infected by breathing in the virus if you are within 1 metre of a person who has COVID-19, or by touching a contaminated surface and then touching your eyes, nose or mouth before washing your hands.
+                    </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Are masks effective against the coronavirus disease ?
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                      <div class="card-body" style="background-color: aqua;">
+                        If you are healthy, you only need to wear a mask if you are taking care of a person with suspected 2019-nCoV infection. Wear a mask if you are coughing or sneezing. Masks are effective only when used in combination with frequent hand-cleaning with alcohol-based hand rub or soap and water. If you wear a mask, then you must know how to use it and dispose of it properly.
+                    </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What is the incubation period of the coronavirus disease ?
+                        </button>
+                      </h2>
+                    </div>
+                
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body"style="background-color: aqua;">
+                        The incubation period of the virus is the time between the exposure and the display of symptoms. Current information suggests that the incubation period ranges from 1 to 12.5 days (with median estimates of 5 to 6 days), but can be as long as 14 days.
+                    </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Can Coronavirus disease be caught from a person who has no symptoms ?
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                      <div class="card-body" style="background-color: aqua;">
+                        The main way the disease spreads is through respiratory droplets expelled by someone who is coughing. The risk of catching COVID-19 from someone with no symptoms at all is very low. However, many people with COVID-19 experience only mild symptoms. This is particularly true at the early stages of the disease. It is therefore possible to catch COVID-19 from someone who has, for example, just a mild cough and does not feel ill.
+                    </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Is there a vaccine for the coronavirus disease ?
+                        </button>
+                      </h2>
+                    </div>
+                
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body" style="background-color: aqua;">
+                        When a disease is new, there is no vaccine until one is developed. It can take a number of years for a new vaccine to be developed.
+                    </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Are smokers more vulnerable to the coronavirus disease ?
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                      <div class="card-body" style="background-color: aqua;">
+                        Smokers are likely to be more vulnerable to COVID-19 as the act of smoking means that fingers (and possibly contaminated cigarettes) are in contact with lips which increases the possibility of transmission of virus from hand to mouth. Smokers may also already have lung disease or reduced lung capacity which would greatly increase risk of serious illness. Smoking products such as water pipes often involve the sharing of mouth pieces and hoses, which could facilitate the transmission of COVID-19 in communal and social settings.
+                    </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Can the coronavirus disease spread through food ?
+                        </button>
+                      </h2>
+                    </div>
+                
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body" style="background-color: aqua;">
+                        Current evidence on other coronavirus strains shows that while coronaviruses appear to be stable at low and freezing temperatures for a certain period, food hygiene and good food safety practices can prevent their transmission through food.
+                    </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Can antibiotics treat coronavirus ?
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                      <div class="card-body" style="background-color: aqua;">
+                        No, antibiotics do not work against viruses. The 2019-nCOV is a virus and, therefore, antibiotics should not be used as a means of prevention or treatment.
+                    </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+        <br><br>
+
+        <div class="container text-center">
+          <div class="accordion" id="accordionExample">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      What is a coronavirus?
+                    </button>
+                  </h2>
+                </div>
+            
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body" style="background-color: aqua;">
+                     Coronaviruses are a large family of viruses that are known to cause illness ranging from the common cold to more severe diseases such as Middle East Respiratory Syndrome (MERS) and Severe Acute Respiratory Syndrome (SARS). 
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      What is a novel coronavirus?
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body" style="background-color: aqua;">
+                    A novel coronavirus (CoV) is a new strain of coronavirus that has not been previously identified in humans.
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      What happens when you get the coronavirus disease ?
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+                  <div class="card-body" style="background-color:aqua;">
+                    A novel coronavirus (CoV) is a new strain of coronavirus that has not been previously identified in humans.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Can humans become infected with a novel coronavirus of animal source?
+                      </button>
+                    </h2>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body" style="background-color: aqua;">
+                      etailed investigations found that SARS-CoV was transmitted from civet cats to humans in China in 2002 and MERS-CoV from dromedary camels to humans in Saudi Arabia in 2012. Several known coronaviruses are circulating in animals that have not yet infected humans. As surveillance improves around the world, more coronaviruses are likely to be identified.
+                  </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Are masks effective against the coronavirus disease ?
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body" style="background-color: aqua;">
+                      If you are healthy, you only need to wear a mask if you are taking care of a person with suspected 2019-nCoV infection. Wear a mask if you are coughing or sneezing. Masks are effective only when used in combination with frequent hand-cleaning with alcohol-based hand rub or soap and water. If you wear a mask, then you must know how to use it and dispose of it properly.
+                  </div>
+                  </div>
+              </div>
+              <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        What are the symptoms of someone infected with a coronavirus?
+                      </button>
+                    </h2>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body"style="background-color: aqua;">
+                      It depends on the virus, but common signs include respiratory symptoms, fever, cough, shortness of breath, and breathing difficulties. In more severe cases, infection can cause pneumonia, severe acute respiratory syndrome, kidney failure and even death.
+                  </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Can coronaviruses be transmitted from person to person?
+    
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body" style="background-color: aqua;">
+                      Yes, some coronaviruses can be transmitted from person to person, usually after close contact with an infected patient, for example, in a household workplace, or health care centre.
+                  </div>
+                  </div>
+              </div>
+              <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Is there a vaccine for the coronavirus disease ?
+                      </button>
+                    </h2>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body" style="background-color: aqua;">
+                      When a disease is new, there is no vaccine until one is developed. It can take a number of years for a new vaccine to be developed.
+                  </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Is there a treatment for a novel coronavirus?
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body" style="background-color: aqua;">
+                      There is no specific treatment for disease caused by a novel coronavirus. However, many of the symptoms can be treated and therefore treatment based on the patient’s clinical condition. Moreover, supportive care for infected persons can be highly effective.
+                  </div>
+                  </div>
+              </div>
+              <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        
+                      What can I do to protect myself?
+                      </button>
+                    </h2>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body" style="background-color: aqua;">
+                      Standard recommendations to reduce exposure to and transmission of a range of illnesses include maintaining basic hand and respiratory hygiene, and safe food practices  and avoiding close contact, when possible, with anyone showing symptoms of respiratory illness such as coughing and sneezing.
+                  </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Are health workers at risk from a novel coronavirus?
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body" style="background-color: aqua;">
+                      Yes, they can be, as health care workers come into contact with patients more often than the general public WHO recommends that health care workers consistently apply appropriate
+                  </div>
+                  </div>
+    
+    
+              </div>
+    
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      What WHO recommendations for countries?
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body" style="background-color: aqua;">
+                    WHO encourages all countries to enhance their surveillance for severe acute respiratory infections (SARI), to carefully review any unusual patterns of SARI or pneumonia cases and to notify WHO of any suspected or confirmed case of infection with novel coronavirus.
+    
+                    Countries are encouraged to continue strengthening their preparedness for health emergencies in line with the International Health Regulations (2005).
+                </div>
+                </div>
+            </div>
+    
+           
+    
+            </div>
+      </div>
+    
+    
+      <br>
+        
+        <!--footer-->
+
+    <!-- Footer -->
+<footer class="page-footer font-small blue pt-4" style="background-color: palegoldenrod;">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+      
+        <h4>FOR MORE DETAILS REALTED TO COVID-19 YOU CAN GO ON TO THE FOLLOWING WEBSITES</h4>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://www.who.int/health-topics/coronavirus#tab=tab_1">WORLD HEALTH ORGANIZATION</a>
+          </li>
+          <li>
+            <a href="https://www.worldometers.info/coronavirus/">WORLDOMETER</a>
+          </li>
+          <li>
+            <a href="https://www.mohfw.gov.in/">MoHFW</a>
+          </li>
+          <li>
+            <a href="https://www.covid19india.org/">COVID-19 INDIA</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+       
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+   <p style="color: rgb(47, 102, 102);">SOMAN KUMAR</p>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+        
+        </body>
+        </html>
+        
+
+
+
+
+
+   
+   

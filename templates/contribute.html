@@ -1,0 +1,296 @@
+<html>
+    <head>
+        <title>Covid Tracker - INDIA</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    </head>
+
+    <body style="background-color: black;">
+
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <h3>COVID-19 Analysis</h3><p style="font-size: 15px; ">- SOMAN KUMAR</p>
+        </a>
+      </nav>
+      <br>
+      
+      <!--navbar-->
+      <nav class="navbar navbar-dark bi-globe ">
+        <div class="container" ">
+          <h3></h3>
+          <ul class="nav nav-tabs">
+            <li ><button type="button" class="btn btn-default"><a href="{{ url_for('Information')}}">HOME</a></button></li>
+            <li><button type="button" class="btn btn-default"><a href="{{ url_for('covid') }}" >  INDIA</a></button></li>
+            <li><button type="button" class="btn btn-default"><a href="{{ url_for('world') }}">  WORLD</a></button></li>
+            <li><button type="button" class="btn btn-default"><a href="{{ url_for('contribute') }}">  CONTRIBUTORS</a></button></li>
+          </ul>
+          <br>
+          
+        </div>
+      </nav>
+        <br>
+
+
+      <br>
+      <div class="container text-center">
+        <div class="alert alert-info" role="alert">
+            All contributions made towards PM Cares fund is eligible for CSR!
+        </div>
+    </div>
+    <div class="container text-center">
+        <div class="alert alert-info" role="alert">
+            All contributions towards CMRF's Relief Fund are exempted from Income Tax under section 80(G).
+        </div>
+    </div>
+    <br>
+    <div class="container text-center">
+        <div class = "row">
+            <div class="col-sm-12">
+              <a class="btn btn-danger" href="https://www.investindia.gov.in/bip/resources/list-ngos-providing-relief-during-covid-19" role="button" target="container">Click here</a> to view the list of NGOs providing relief during covid-19
+              
+            </div>
+        </div>
+    </div>
+    <br>
+    <!--Cards for contribute-->
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">PM Cares Fund</h5><br>
+                    <a href="https://www.pmcares.gov.in/en/" class="btn btn-dark" target="window1">DONATE</a>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Maharashtra</h5><br>
+                    <a href="https://cmrf.maharashtra.gov.in/CMRFCitizen/DonationOnlineForm.action" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Karnataka</h5><br>
+                    <a href="https://cmrf.karnataka.gov.in/English/index.html" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Gujarat</h5><br>
+                    <a href="https://iora.gujarat.gov.in/cmrf/" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Assam</h5><br><br>
+                    <a href="https://cm.assam.gov.in/relieffund.php" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Madhya Pradesh</h5>
+                    <a href="http://mponline.gov.in/Portal/Services/CMRF/index.html" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-2">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">CMRF Kerala</h5><br>
+                  <a href="https://donation.cmdrf.kerala.gov.in/" class="btn btn-primary" target="window1">DONATE</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Tamil Nadu</h5>
+                    <a href="https://ereceipt.tn.gov.in/cmprf/Cmprf" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Telangana</h5>
+                    <a href="https://telangana.gov.in/cm-relief-fund" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Rajasthan</h5>
+                    <a href="https://cmrelief.rajasthan.gov.in/Covid-19.aspx" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Uttar Pradesh</h5>
+                    <a href="http://upcmo.up.nic.in/drf.htm" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Bihar</h5><br>
+                    <a href="http://mponline.gov.in/Portal/Services/CMRF/index.html" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-2">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">CMRF Chattisgarh</h5><br>
+                  <a href="http://cmrf.cg.gov.in/" class="btn btn-primary" target="window1">DONATE</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF West Bengal</h5><br>
+                    <a href="http://wbcmo.gov.in/donation.aspx" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Punjab</h5><br>
+                    <a href="https://cmrf.punjab.gov.in/" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Himachal Pradesh</h5>
+                    <a href="https://cmhimachal.nic.in/" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Arunachal Pradesh</h5>
+                    <a href="http://www.arunachalpradesh.gov.in/cm-relief-fundcmrf/" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">CMRF Uttarakhand</h5><br>
+                    <a href="https://cmrf.uk.gov.in/" class="btn btn-primary" target="window1">DONATE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <br>
+
+      <!--footer-->
+
+    <!-- Footer -->
+<footer class="page-footer font-small blue pt-4" style="background-color: palegoldenrod;">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+  
+      <!-- Grid row -->
+      <div class="row">
+  
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+  
+          <!-- Content -->
+        
+          <h4>FOR MORE DETAILS REALTED TO COVID-19 YOU CAN GO ON TO THE FOLLOWING WEBSITES</h4>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="clearfix w-100 d-md-none pb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+  
+          <!-- Links -->
+          
+  
+          <ul class="list-unstyled">
+            <li>
+              <a href="https://www.who.int/health-topics/coronavirus#tab=tab_1">WORLD HEALTH ORGANIZATION</a>
+            </li>
+            <li>
+              <a href="https://www.worldometers.info/coronavirus/">WORLDOMETER</a>
+            </li>
+            <li>
+              <a href="https://www.mohfw.gov.in/">MoHFW</a>
+            </li>
+            <li>
+              <a href="https://www.covid19india.org/">COVID-19 INDIA</a>
+            </li>
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+  
+         
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+     <p style="color: rgb(47, 102, 102);">SOMAN KUMAR</p>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+   
+    </body>
+    </html>

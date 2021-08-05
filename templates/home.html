@@ -1,0 +1,369 @@
+<html>
+    <head>
+        <title>
+          Covid Tracker - INDIA
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        
+
+     
+        
+       
+      </head>
+    <body style="background-color: black;">
+      <!--NavBar-->
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <h3>COVID-19 Analysis</h3><p style="font-size: 15px; ">- SOMAN KUMAR</p>
+        </a>
+      </nav>
+      <br>
+      <!-- menu bar link-->
+      <nav class="navbar navbar-dark bi-globe ">
+      <div class="container" ">
+        <h3></h3>
+        <ul class="nav nav-tabs">
+          <li ><button type="button" class="btn btn-default"><a href="{{ url_for('Information')}}">HOME</a></button></li>
+          <li><button type="button" class="btn btn-default"><a href="{{ url_for('covid') }}" >  INDIA</a></button></li>
+          <li><button type="button" class="btn btn-default"><a href="{{ url_for('world') }}">  WORLD</a></button></li>
+          <li><button type="button" class="btn btn-default"><a href="{{ url_for('contribute') }}">  CONTRIBUTORS</a></button></li>
+        </ul>
+        <br>
+        
+      </div>
+    </nav>
+      <br>
+
+      <div class="container text-center" >
+        <div class="card">
+            <div class="card-body" style="background-color: yellow;">
+                <h1>INDIA ANALYSIS</h1>
+            </div>
+        </div>
+    </div>
+   <br>
+
+    <!--map of india-->
+<div class="container">
+  
+  <img class="img-responsive" src="https://fvmstatic.s3.amazonaws.com/maps/m/IN-EPS-02-4001.png" alt="India" width="1100" height="700" style="vertical-align:middle"> 
+</div>
+<br>
+
+
+     <!--new records displaying on screen-->
+
+      <div class="container">
+        <div class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Stay Safe !</strong> Total new cases today {{data['todayCases']}}
+        </div>
+    </div>
+    <br>
+
+    <div class="container">
+      <div class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Stay Safe !</strong> Total new deaths today  {{data['todayDeaths']}}
+      </div>
+  </div>
+  <br>
+
+  <div class="container">
+    <div class="alert alert-danger alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Stay Safe !</strong> Total new recovered cases today  {{data['todayRecovered']}}
+    </div>
+</div>
+<br>
+
+
+
+
+
+
+<!--adding data and cards-->
+
+
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">CONFIRMED CASES</h5>
+                          <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-check-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                          </svg>
+                          <button type="button" class="btn btn-info btn-lg" style=" border-radius: 8px; border: 4px solid  lime;"">{{data['cases']}}</button> 
+                        </div>
+                      </div>
+                </div>
+                <br>
+
+
+
+                <div class="col-sm-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">TOTAL DEATHS</h5>
+                          <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-shield-fill-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zM6.854 6.146a.5.5 0 1 0-.708.708L7.293 8 6.146 9.146a.5.5 0 1 0 .708.708L8 8.707l1.146 1.147a.5.5 0 0 0 .708-.708L8.707 8l1.147-1.146a.5.5 0 0 0-.708-.708L8 7.293 6.854 6.146z"/>
+                          </svg>
+                          <button type="button" class="btn btn-info btn-lg" style=" border-radius: 8px; border: 4px solid lime;"">{{data['deaths']}}</button>
+                        </div>
+                      </div>
+                </div>
+                <br>
+
+
+
+                <div class="col-sm-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">RECOVERED CASES</h5>
+                          <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                          </svg>
+                          <button type="button" class="btn btn-info btn-lg"  style=" border-radius: 8px; border: 4px solid lime;">{{data['recovered']}}</button>  
+                        </div>
+                      </div>
+                </div>
+                <br>
+
+
+
+                <div class="col-sm-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">ACTIVE CASES</h5>
+                          <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-bookmark-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4 0a2 2 0 0 0-2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4zm4.5 4.5a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z"/>
+                          </svg>
+                          <button type="button" class="btn btn-info btn-lg"  style=" border-radius: 8px; border: 4px solid lime;">{{data['active']}}</button>
+                        </div>
+                      </div>
+                </div>
+                <br>
+
+
+
+                <div class="col-sm-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">CRITICAL CASES</h5>
+                          <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-heart-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 1.314C3.562-3.248-7.534 4.735 8 15V1.314z"/>
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                          </svg>
+                          <button type="button" class="btn btn-info btn-lg"  style=" border-radius: 8px; border: 4px solid lime;"">{{data['critical']}}</button> 
+                        </div>
+                      </div>
+                </div>
+                <br>
+
+
+
+                <div class="col-sm-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">TOTAL TEST</h5>
+                          <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-file-medical-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM8.5 4.5a.5.5 0 0 0-1 0v.634l-.549-.317a.5.5 0 1 0-.5.866L7 6l-.549.317a.5.5 0 1 0 .5.866l.549-.317V7.5a.5.5 0 1 0 1 0v-.634l.549.317a.5.5 0 1 0 .5-.866L9 6l.549-.317a.5.5 0 1 0-.5-.866l-.549.317V4.5zM5.5 9a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+                          </svg>
+                          <button type="button" class="btn btn-info btn-lg"  style=" border-radius: 8px; border: 4px solid lime;">{{data['tests']}}</button> 
+                        </div>
+                      </div>
+                </div>
+                <br>
+
+
+
+                <div class="col-sm-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">POPULATION</h5>
+                          <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                          </svg>
+                          <button type="button" class="btn btn-info btn-lg"   style=" border-radius: 8px; border: 4px solid lime;"">{{data['population']}}</button>
+                        </div>
+                      </div>
+                </div>
+                <br>
+
+
+
+                <div class="col-sm-3">
+                  <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">CONTINENT</h5>
+                        <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-globe" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4H2.255a7.025 7.025 0 0 1 3.072-2.472 6.7 6.7 0 0 0-.597.933c-.247.464-.462.98-.64 1.539zm-.582 3.5h-2.49c.062-.89.291-1.733.656-2.5H3.82a13.652 13.652 0 0 0-.312 2.5zM4.847 5H7.5v2.5H4.51A12.5 12.5 0 0 1 4.846 5zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5H7.5V11H4.847a12.5 12.5 0 0 1-.338-2.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12H7.5v2.923c-.67-.204-1.335-.82-1.887-1.855A7.97 7.97 0 0 1 5.145 12zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11H1.674a6.958 6.958 0 0 1-.656-2.5h2.49c.03.877.138 1.718.312 2.5zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12h2.355a7.967 7.967 0 0 1-.468 1.068c-.552 1.035-1.218 1.65-1.887 1.855V12zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5h-2.49A13.65 13.65 0 0 0 12.18 5h2.146c.365.767.594 1.61.656 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4H8.5V1.077c.67.204 1.335.82 1.887 1.855.173.324.33.682.468 1.068z"/>
+                        </svg>
+                        <button type="button"  style=" border-radius: 8px; border: 4px solid lime; ">Asia</button>
+                      </div>
+                    </div>
+              </div>
+            </div>
+        </div>
+        <br>
+
+        <!--Cards for worldwide-->
+
+        <div class="container text-center">
+          <div class="card">
+              <div class="card-body">
+                  <h1>WORLDWIDE  DISPLAY</h1>
+              </div>
+          </div>
+      </div>
+      <br>
+
+
+        <div class="container text-center">
+          <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Confirmed Cases</h5>
+                    <svg class="bi bi-person-check-fill" width="5em" height="7em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 100-6 3 3 0 000 6zm9.854-2.854a.5.5 0 010 .708l-3 3a.5.5 0 01-.708 0l-1.5-1.5a.5.5 0 01.708-.708L12.5 7.793l2.646-2.647a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <p class="card-text"></p>
+                    <button type="button" class="btn btn-dark btn-lg" style="min-width:150px; min-height:50px; border-radius: 0px; border: 1px solid #FFFFFF;"><strong>{{data['cases']}}</strong></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Confirmed Deaths</h5>
+                    <svg class="bi bi-person-dash-fill" width="5em" height="7em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 100-6 3 3 0 000 6zm5-.5a.5.5 0 01.5-.5h4a.5.5 0 010 1h-4a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+                    </svg>
+                    <p class="card-text"> </p>
+                    <button type="button" class="btn btn-dark btn-lg" style="min-width:150px; min-height:50px; border-radius: 0px; border: 1px solid #FFFFFF;"><strong>{{data['deaths']}}</strong></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+      <br>
+
+      <!--       /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////                                                                                               -->
+
+ 
+
+
+
+
+
+     
+<!--         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////            -->
+      <!--learn more-->
+      <div class="jumbotron">
+        <h1 class="display-4">INDIA</h1>
+        <p class="lead">The COVID-19 pandemic in India is part of the worldwide pandemic of coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). The first case of COVID-19 in India, which originated from China, was reported on 30 January 2020. India currently has the largest number of confirmed cases in Asia, and has the second-highest number of confirmed cases in the world after the United States, with more than 9 million reported cases of COVID-19 infection and more than 100 thousand deaths. By mid of 2020, India had approached in position of conducting highest number of daily tests in the world which subsequently translated into highest number of daily new cases in world and has sustained highest number of daily cases spike since then.
+
+          On 22 March, India observed a 14-hour voluntary public curfew at the insistence of Prime Minister Narendra Modi. It was followed by mandatory lockdowns in COVID-19 hotspots and all major cities. Further, on 24 March, the prime minister ordered a nationwide lockdown for 21 days, affecting the entire 1.3 billion population of India. On 14 April, India extended the nationwide lockdown till 3 May which was followed by two-week extensions starting 3 and 17 May with substantial relaxations. From 1 June, the government started "unlocking" the country (barring "containment zones") in three unlock phases.
+          
+          In March, after the lockdown was imposed, the United Nations (UN) and the World Health Organization (WHO) praised India's response to the pandemic as 'comprehensive and robust', terming the lockdown restrictions as 'aggressive but vital' for containing the spread and building necessary healthcare infrastructure. At the same time, the Oxford COVID-19 Government Response Tracker (OxCGRT) noted the government's swift and stringent actions, emergency policy-making, emergency investment in health care, fiscal stimulus, and investment in vaccine and drug R&D and gave India a score of 100 for the strict response. Also in March, Michael Ryan, chief executive director of the WHO's health emergencies programme noted that India had tremendous capacity to deal with the outbreak owing to its vast experience in eradicating smallpox and polio.In June, India was ranked 56th of 200 countries in COVID-19 safety assessment report by Deep Knowledge Group. Other commentators have raised concerns about the economic fallout arising as a result of the pandemic and preventive restrictions.The lockdown was justified by the government and other agencies for being preemptive to prevent India from entering a higher stage which could make handling very difficult and cause even more losses thereafter.
+          
+          In July 2020, India's Ministry of Information and Broadcasting claimed the country's case fatality rate was among the lowest in the world at 2.41% and "steadily declining". By mid-May 2020, six cities accounted for around half of all reported cases in the country – Mumbai, Delhi, Ahmedabad, Chennai, Pune and Kolkata. As of 10 September 2020, Lakshadweep is the only region which has not reported a case. On 10 June, India's recoveries exceeded active cases for the first time. Infection rates started to drop significantly in September, and the number of daily new cases and active cases started to decline rapidly. A Government panel on COVID-19 announced in October that the pandemic had peaked in India, and may come under control by February 2021. India has over 30 anti-COVID vaccines in various stages of development and the first of these is expected to be introduced in early 2021.
+          
+          The pandemic has left a severe impact on Indian economy, leading to a negative growth rate for the first time in decades. Nevertheless, the economy started to rebound after the lockdown was eased. Increased requirement for consumption had led the government and private firms to repurpose their factories and production lines for manufacturing of more hospital beds, PPE and ventilators. India emerged as the world's second largest manufacturer of PPE during the pandemic. The Union Government also launched a major self-sufficiency campaign to substitute imported products with domestically produced counterparts, especially to replace goods imported from China.
+          .</p>
+        <hr class="my-4">
+        <p>To know more about corona virus outbreak in inda </p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="https://www.mohfw.gov.in/" role="button">know more</a>
+        </p>
+      </div>
+
+
+<!---->
+
+      <div class="container text-center">
+        <div class = "row">
+            <div class="col-sm-12">
+              <a class="btn btn-primary" href="https://www.investindia.gov.in/bip/resources/list-ngos-providing-relief-during-covid-19" role="button" target="container">Click here</a> to view the list of NGOs providing relief during covid-19
+              
+            </div>
+        </div>
+    </div>
+       
+    <!--footer-->
+
+    <!-- Footer -->
+<footer class="page-footer font-small blue pt-4" style="background-color: palegoldenrod;">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+      
+        <h4>FOR MORE DETAILS REALTED TO COVID-19 YOU CAN GO ON TO THE FOLLOWING WEBSITES</h4>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://www.who.int/health-topics/coronavirus#tab=tab_1">WORLD HEALTH ORGANIZATION</a>
+          </li>
+          <li>
+            <a href="https://www.worldometers.info/coronavirus/">WORLDOMETER</a>
+          </li>
+          <li>
+            <a href="https://www.mohfw.gov.in/">MoHFW</a>
+          </li>
+          <li>
+            <a href="https://www.covid19india.org/">COVID-19 INDIA</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+       
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+   <p style="color: rgb(47, 102, 102);">SOMAN KUMAR</p>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+    </body>
+</html>
